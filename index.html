@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Mensch ärgere dich nicht</title>
+		<meta charset="utf-8">
+		<style>
+			#board {
+				width: 546px;
+				height: 546px;
+				background: #ffc;
+				border: 4px solid #f66;
+				position: relative;
+			}
+			.house {
+				width: 28px;
+				height: 28px;
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 100%;
+				position: absolute;
+			}
+			.goal {
+				width: 28px;
+				height: 28px;
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 100%;
+				position: absolute;
+			}
+			.field {
+				width: 32px;
+				height: 32px;
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 100%;
+				position: absolute;
+			}
+			#start_y, .house-y, .goal-y {
+				background: #ff0;
+			}
+			#start_g, .house-g, .goal-g {
+				background: #0c0;
+			}
+			#start_r, .house-r, .goal-r {
+				background: #f00;
+			}
+			#start_b, .house-b, .goal-b {
+				background: #333;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Mensch ärgere dich nicht</h1>
+		<div id="board">
+			<div id="houses_y">
+				<div class="house house-y" style="left:16px; top:16px;"></div>
+				<div class="house house-y" style="left:64px; top:16px;"></div>
+				<div class="house house-y" style="left:16px; top:64px;"></div>
+				<div class="house house-y" style="left:64px; top:64px;"></div>
+			</div>
+			<div id="houses_g">
+				<div class="house house-g" style="right:16px; top:16px;"></div>
+				<div class="house house-g" style="right:64px; top:16px;"></div>
+				<div class="house house-g" style="right:16px; top:64px;"></div>
+				<div class="house house-g" style="right:64px; top:64px;"></div>
+			</div>
+			<div id="houses_r">
+				<div class="house house-r" style="right:16px; bottom:16px;"></div>
+				<div class="house house-r" style="right:64px; bottom:16px;"></div>
+				<div class="house house-r" style="right:16px; bottom:64px;"></div>
+				<div class="house house-r" style="right:64px; bottom:64px;"></div>
+			</div>
+			<div id="houses_b">
+				<div class="house house-b" style="left:16px; bottom:16px;"></div>
+				<div class="house house-b" style="left:64px; bottom:16px;"></div>
+				<div class="house house-b" style="left:16px; bottom:64px;"></div>
+				<div class="house house-b" style="left:64px; bottom:64px;"></div>
+			</div>
+			
+			<div id="goals_y">
+				<div class="goal goal-y" style="left:66px; top:258px;"></div>
+				<div class="goal goal-y" style="left:114px; top:258px;"></div>
+				<div class="goal goal-y" style="left:162px; top:258px;"></div>
+				<div class="goal goal-y" style="left:210px; top:258px;"></div>
+			</div>
+			<div id="goals_g">
+				<div class="goal goal-g" style="left:258px; top:66px;"></div>
+				<div class="goal goal-g" style="left:258px; top:114px;"></div>
+				<div class="goal goal-g" style="left:258px; top:162px;"></div>
+				<div class="goal goal-g" style="left:258px; top:210px;"></div>
+			</div>
+			<div id="goals_r">
+				<div class="goal goal-r" style="right:66px; top:258px;"></div>
+				<div class="goal goal-r" style="right:114px; top:258px;"></div>
+				<div class="goal goal-r" style="right:162px; top:258px;"></div>
+				<div class="goal goal-r" style="right:210px; top:258px;"></div>
+			</div>
+			<div id="goals_b">
+				<div class="goal goal-b" style="left:258px; bottom:66px;"></div>
+				<div class="goal goal-b" style="left:258px; bottom:114px;"></div>
+				<div class="goal goal-b" style="left:258px; bottom:162px;"></div>
+				<div class="goal goal-b" style="left:258px; bottom:210px;"></div>
+			</div>
+			
+			<div id="fields">
+				<div class="field" id="start_y" style="left:16px; top:208px;"></div>
+				
+				<div class="field" style="left:64px; top:208px;"></div>
+				<div class="field" style="left:112px; top:208px;"></div>
+				<div class="field" style="left:160px; top:208px;"></div>
+				
+				<div class="field" style="left:208px; top:208px;"></div>
+				
+				<div class="field" style="left:208px; top:160px;"></div>
+				<div class="field" style="left:208px; top:112px;"></div>
+				<div class="field" style="left:208px; top:64px;"></div>
+				
+				<div class="field" style="left:208px; top:16px;"></div>
+				
+				<div class="field" style="left:256px; top:16px;"></div>
+				
+				<div class="field" id="start_g" style="left:304px; top:16px;"></div>
+				
+				<div class="field" style="left:304px; top:64px;"></div>
+				<div class="field" style="left:304px; top:112px;"></div>
+				<div class="field" style="left:304px; top:160px;"></div>
+				
+				<div class="field" style="left:304px; top:208px;"></div>
+				
+				<div class="field" style="left:352px; top:208px;"></div>
+				<div class="field" style="left:400px; top:208px;"></div>
+				<div class="field" style="left:448px; top:208px;"></div>
+				
+				<div class="field" style="left:496px; top:208px;"></div>
+				
+				<div class="field" style="left:496px; top:256px;"></div>
+				
+				<div class="field" id="start_r" style="left:496px; top:304px;"></div>
+				
+				<div class="field" style="left:448px; top:304px;"></div>
+				<div class="field" style="left:400px; top:304px;"></div>
+				<div class="field" style="left:352px; top:304px;"></div>
+				
+				<div class="field" style="left:304px; top:304px;"></div>
+				
+				<div class="field" style="left:304px; top:352px;"></div>
+				<div class="field" style="left:304px; top:400px;"></div>
+				<div class="field" style="left:304px; top:448px;"></div>
+				
+				<div class="field" style="left:304px; top:496px;"></div>
+				
+				<div class="field" style="left:256px; top:496px;"></div>
+				
+				<div class="field" id="start_b" style="left:208px; top:496px;"></div>
+				
+				<div class="field" style="left:208px; top:448px;"></div>
+				<div class="field" style="left:208px; top:400px;"></div>
+				<div class="field" style="left:208px; top:352px;"></div>
+				
+				<div class="field" style="left:208px; top:304px;"></div>
+				
+				<div class="field" style="left:160px; top:304px;"></div>
+				<div class="field" style="left:112px; top:304px;"></div>
+				<div class="field" style="left:64px; top:304px;"></div>
+				
+				<div class="field" style="left:16px; top:304px;"></div>
+				
+				<div class="field" style="left:16px; top:256px;"></div>
+			</div>
+		</div>
+	</body>
+</html>
