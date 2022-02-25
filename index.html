@@ -35,6 +35,37 @@
 				border-radius: 100%;
 				position: absolute;
 			}
+			.piece {
+				z-index: 1;
+				width: 20px;
+				height: 30px;
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 100%;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+				position: relative;
+				left: 5px;
+				top: -10px;
+				box-shadow: 0 4px 4px #333;
+			}
+			.piece::after {
+				content: "";
+				display: block;
+				width: 16px;
+				height: 16px;
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 100%;
+				position: absolute;
+				left: 1px;
+				top: -14px;
+			}
+			.house > .piece ,
+			.goal > .piece {
+				left: 3px;
+				top: -12px;
+			}
 			#start_y, .house-y, .goal-y {
 				background: #ff0;
 			}
@@ -46,6 +77,22 @@
 			}
 			#start_b, .house-b, .goal-b {
 				background: #333;
+			}
+			.piece-y, .piece-y::after {
+				background: linear-gradient(135deg, #fff, #ff0, #990);
+			}
+			.piece-g, .piece-g::after {
+				background: linear-gradient(135deg, #fff, #0c0, #060);
+			}
+			.piece-r, .piece-r::after {
+				background: linear-gradient(135deg, #fff, #f00, #900);
+			}
+			.piece-b, .piece-b::after {
+				background: linear-gradient(135deg, #fff, #333, #000);
+				border: 1px solid #666;
+			}
+			#start_b > .piece {
+				box-shadow: 0 4px 4px #000;
 			}
 		</style>
 	</head>
@@ -103,7 +150,9 @@
 			</div>
 			
 			<div id="fields">
-				<div class="field" id="start_y" style="left:16px; top:208px;"></div>
+				<div class="field" id="start_y" style="left:16px; top:208px;">
+					<div class="piece piece-y"></div>
+				</div>
 				
 				<div class="field" style="left:64px; top:208px;"></div>
 				<div class="field" style="left:112px; top:208px;"></div>
@@ -119,7 +168,9 @@
 				
 				<div class="field" style="left:256px; top:16px;"></div>
 				
-				<div class="field" id="start_g" style="left:304px; top:16px;"></div>
+				<div class="field" id="start_g" style="left:304px; top:16px;">
+					<div class="piece piece-g"></div>
+				</div>
 				
 				<div class="field" style="left:304px; top:64px;"></div>
 				<div class="field" style="left:304px; top:112px;"></div>
@@ -135,7 +186,9 @@
 				
 				<div class="field" style="left:496px; top:256px;"></div>
 				
-				<div class="field" id="start_r" style="left:496px; top:304px;"></div>
+				<div class="field" id="start_r" style="left:496px; top:304px;">
+					<div class="piece piece-r"></div>
+				</div>
 				
 				<div class="field" style="left:448px; top:304px;"></div>
 				<div class="field" style="left:400px; top:304px;"></div>
@@ -151,7 +204,9 @@
 				
 				<div class="field" style="left:256px; top:496px;"></div>
 				
-				<div class="field" id="start_b" style="left:208px; top:496px;"></div>
+				<div class="field" id="start_b" style="left:208px; top:496px;">
+					<div class="piece piece-b"></div>
+				</div>
 				
 				<div class="field" style="left:208px; top:448px;"></div>
 				<div class="field" style="left:208px; top:400px;"></div>
